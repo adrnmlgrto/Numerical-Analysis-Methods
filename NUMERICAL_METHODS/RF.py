@@ -15,6 +15,11 @@ tab.float_format['ER'] = '.2'
 
 
 def rf_iteration(a, b, fx, sc, dec):
+
+    tab.float_format['a'] = '.'+str(dec)
+    tab.float_format['b'] = '.'+str(dec)
+    tab.float_format['Xn'] = '.'+str(dec)
+
     n = 1
 
     faS = fx.replace('x', 'a')
