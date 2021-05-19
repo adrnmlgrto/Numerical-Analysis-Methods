@@ -11,13 +11,16 @@ tab.float_format['Xn+1'] = '.4'
 tab.float_format['ER'] = '.2'
 
 
-def fp_iteration_ER(x, fx, sc):
+def fp_iteration_ER(x, fx, sc, dec):
     # x = Xn
     # fx = the isolated x value
     # sc = stopping criterion
 
+    tab.float_format['Xn'] = '.'+str(dec)
+    tab.float_format['Xn+1'] = '.'+str(dec)
+
     n = 0
-    y = round(eval(fx), 4)  # Xn+1
+    y = round(eval(fx), dec)  # Xn+1
     er = round(abs((y-x)/y*100), 2)
 
     tab.add_row([n, x, y, er])
@@ -31,7 +34,7 @@ def fp_iteration_ER(x, fx, sc):
         else:
             n += 1
             x = y
-            y = round(eval(fx), 4)
+            y = round(eval(fx), dec)
             er = round(abs((y-x)/y*100), 2)
             tab.add_row([n, x, y, er])
 
@@ -72,7 +75,8 @@ choice = int(input('Enter choice: '))
 if choice == 1:
 
     x = float(input('Until what percent: '))
-    fp_iteration_ER(i_root, str_funct, x)
+    dp = int(input('Up to what decimal place: '))
+    fp_iteration_ER(i_root, str_funct, x, dp)
 
     input('Press ENTER key to continue...')
 
