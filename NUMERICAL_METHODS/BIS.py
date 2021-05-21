@@ -60,6 +60,9 @@ def bs_iteration(a, b, fx, sc, dec):
     print(tab)
 
 
+print('BISECTION METHOD')
+print('(Plase take note of when entering f(x), exponentiation operator is ** and not ^)')
+print('(Example: 3x²+2x+4 should be in the format: 3*x**2+2*x+4)\n')
 interval_1 = float(input('a = '))
 interval_2 = float(input('b = '))
 str_funct = input('f(x) = ')
