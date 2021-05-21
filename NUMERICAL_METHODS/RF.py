@@ -61,6 +61,9 @@ def rf_iteration(a, b, fx, sc, dec):
     print(tab)
 
 
+print('Regula-Falsi Method (False Position Method)')
+print('(Plase take note of when entering f(x), exponentiation operator is ** and not ^)')
+print('(Example: 3x²+2x+4 should be in the format: 3*x**2+2*x+4)\n')
 interval_1 = float(input('a = '))
 interval_2 = float(input('b = '))
 str_funct = input('f(x) = ')
@@ -69,4 +72,4 @@ dp = int(input('Up to what decimal place: '))
 
 rf_iteration(interval_1, interval_2, str_funct, x, dp)
 
-input('Press ENTER key to continue...')
+input('Press ENTER key to exit program...')
