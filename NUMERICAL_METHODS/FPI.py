@@ -46,27 +46,31 @@ def fp_iteration_IT(x, fx, sc, dec):
     # x = Xn
     # fx = the isolated x value
     # sc = stopping criterion
+    x_disp = x
 
     tab.del_column('ER')
     tab.float_format['Xn'] = '.'+str(dec)
     tab.float_format['Xn+1'] = '.'+str(dec)
 
     n = 0
-    y = round(eval(fx), dec)  # Xn+1
+    y = eval(fx)            # Xn+1 RAW VALUE
+    y_disp = round(y, dec)  # Xn+1 DISPLAYED IN TABLE
 
-    tab.add_row([n, x, y])
+    tab.add_row([n, x_disp, y_disp])
 
     while n < sc:
         n += 1
         x = y
-        y = round(eval(fx), dec)
-        tab.add_row([n, x, y])
+        x_disp = y_disp
+        y = eval(fx)
+        y_disp = round(y, dec)
+        tab.add_row([n, x_disp, y_disp])
 
     tab.align = 'r'
     print(tab)
 
 
-i_root = int(input('X0: '))
+i_root = float(input('X0: '))
 str_funct = input('X = ')
 
 print('Stopping Criterion: [1] Until %ER(x%), [2] Until xth Iteration')
