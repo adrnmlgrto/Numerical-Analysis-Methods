@@ -25,16 +25,17 @@ def rf_iteration(a, b, fx, sc, dec):
     faS = fx.replace('x', 'a')
     fbS = fx.replace('x', 'b')
 
-    fa = round(eval(faS), 5)
-    fb = round(eval(fbS), 5)
+    fa = eval(faS)
+    fb = eval(fbS)
 
     c = b - (((a-b)*fb)/(fa-fb))
+    c_disp = round(c, dec)
     fcS = fx.replace('x', 'c')
-    fc = round(eval(fcS), 5)
+    fc = eval(fcS)
 
     er = -1
 
-    tab.add_row([n, a, b, c, er])
+    tab.add_row([n, a, b, c_disp, er])
 
     while n < sc:
         n += 1
@@ -50,10 +51,11 @@ def rf_iteration(a, b, fx, sc, dec):
             break
 
         c = b - (((a-b)*fb)/(fa-fb))
-        fc = round(eval(fcS), 5)
+        c_disp = round(c, dec)
+        fc = eval(fcS)
 
         er = round(abs((c-prev_c)/c)*100, 2)
-        tab.add_row([n, a, b, c, er])
+        tab.add_row([n, a, b, c_disp, er])
 
     tab.align = 'r'
     print(tab)
