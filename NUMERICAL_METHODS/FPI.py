@@ -17,15 +17,17 @@ def fp_iteration_ER(x, fx, sc, dec):
     # x = Xn
     # fx = the isolated x value
     # sc = stopping criterion
+    x_disp = x
 
     tab.float_format['Xn'] = '.'+str(dec)
     tab.float_format['Xn+1'] = '.'+str(dec)
 
     n = 0
-    y = round(eval(fx), dec)  # Xn+1
+    y = eval(fx)  # Xn+1
+    y_disp = round(y, dec)  # Xn+1 DISPLAYED IN TABLE
     er = round(abs((y-x)/y*100), 2)
 
-    tab.add_row([n, x, y, er])
+    tab.add_row([n, x_disp, y_disp, str(er)+'%'])
 
     if er <= sc:
         return
@@ -36,9 +38,11 @@ def fp_iteration_ER(x, fx, sc, dec):
         else:
             n += 1
             x = y
-            y = round(eval(fx), dec)
+            x_disp = y_disp
+            y = eval(fx)
+            y_disp = round(y, dec)  # Xn+1 DISPLAYED IN TABLE
             er = round(abs((y-x)/y*100), 2)
-            tab.add_row([n, x, y, er])
+            tab.add_row([n, x_disp, y_disp, str(er)+'%'])
 
     tab.align = 'r'
     print(tab)
@@ -75,7 +79,6 @@ def fp_iteration_IT(x, fx, sc, dec):
 print('FIXED-POINT ITERATION METHOD')
 print('(Plase take note of when entering X, exponentiation operator is ** and not ^)')
 print('(Example: 3x²+2x+4 should be in the format: 3*x**2+2*x+4)\n')
-
 i_root = float(input('X0: '))
 str_funct = input('X = ')
 
