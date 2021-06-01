@@ -9,6 +9,8 @@
   * **_BIS.py_** (Bisection Method)
   * **_RF.py_** (Regula-Falsi Method/False Position Method)
   * **_NRM.py_** (Newton-Raphson Method) **(Needs manual derivation)**
+  * **_JCB.py_** (Jacobi Iterative Method)
+  * **_GS.py_** (Gauss-Seidel Iterative Method)
 
 * Please do take note that the input of a function **_f(x)_** or **_x_** should always be like this:
   * f(x) = 3x²+2x+4, the input should be **3\*x\*\*2+2\*x+4**
